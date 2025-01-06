@@ -1,4 +1,4 @@
-import * as ts from "npm:typescript";
+import ts from "npm:typescript";
 
 function parse(sourceFile: ts.SourceFile) {
   console.log(`Parsing: ${sourceFile.fileName}`);
