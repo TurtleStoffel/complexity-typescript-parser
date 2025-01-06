@@ -17,9 +17,13 @@ function parseNode(node: ts.Node) {
 }
 
 if (import.meta.main) {
+  console.log(`Command Line Arguments: ${Deno.args}`);
+  // Read input, otherwise default to main.ts
+  const filename = Deno.args[0] || "main.ts";
+  console.log(`Parsing file: ${filename}`);
   const sourceFile = ts.createSourceFile(
-    "main.ts",
-    Deno.readTextFileSync("main.ts"),
+    filename,
+    Deno.readTextFileSync(filename),
     ts.ScriptTarget.ES2015,
     true
   );
